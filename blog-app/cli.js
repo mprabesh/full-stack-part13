@@ -12,11 +12,11 @@ const sequelize = new Sequelize(process.env.DB_URL, {
 
 const cli_SQL = async () => {
   try {
-    const notes = await sequelize.query(`SELECT * FROM blogs`, {
+    const blogs = await sequelize.query(`SELECT * FROM blogs`, {
       type: QueryTypes.SELECT,
     });
-    notes.map((note) => {
-      console.log(`${note.author}: '${note.title}', ${note.likes} likes `);
+    blogs.map((blog) => {
+      console.log(`${blog.author}: '${blog.title}', ${blog.likes} likes `);
     });
   } catch (error) {
     console.error("Unable to connect to the database:", error);
