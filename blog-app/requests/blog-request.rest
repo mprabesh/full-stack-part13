@@ -8,7 +8,10 @@ content-type:application/json
 }
 ###
 
-DELETE http://localhost:3002/api/blogs/3
+DELETE http://localhost:3002/api/blogs/9
 
 ###
 GET http://localhost:3002/api/blogs
+
+###
+PUT http://localhost:3002/api/blogs/98

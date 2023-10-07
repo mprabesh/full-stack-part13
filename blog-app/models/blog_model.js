@@ -1,14 +1,6 @@
-const { Sequelize, DataTypes, Model } = require("sequelize");
-require("dotenv").config();
+const { DataTypes, Model } = require("sequelize");
+const { sequelize } = require("../util/db");
 
-const sequelize = new Sequelize(process.env.DB_URL, {
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
-});
 class Blog extends Model {}
 Blog.init(
   {
@@ -29,7 +21,7 @@ Blog.init(
       allowNull: false,
     },
     likes: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       defaultValue: 0,
     },
   },
@@ -40,5 +32,4 @@ Blog.init(
     modelName: "blog",
   }
 );
-
 module.exports = Blog;
