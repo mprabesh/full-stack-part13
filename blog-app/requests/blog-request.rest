@@ -15,3 +15,29 @@ GET http://localhost:3002/api/blogs
 
 ###
 PUT http://localhost:3002/api/blogs/98
+
+###
+POST http://localhost:3002/api/users
+content-type:application/json
+
+{
+    "name":"Uma Thurman",
+    "username":"thurman123"
+}
+
+###
+PUT http://localhost:3002/api/users/NW123
+content-type:application/json
+
+{
+    "username":"naomi123"
+}
+
+###
+POST http://localhost:3002/api/login
+content-type:application/json
+
+{
+    "username":"naomi123",
+    "password":"password"
+}

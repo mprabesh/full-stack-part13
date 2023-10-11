@@ -12,7 +12,6 @@ blogRouter.get("/", async (req, res, next) => {
 
 blogRouter.post("/", async (req, res, next) => {
   const newBlog = req.body;
-  console.log(req.body);
   try {
     const response = await Blog.create(newBlog);
     res.status(200).json(response);

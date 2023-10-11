@@ -1,8 +1,14 @@
+const { Sequelize } = require("sequelize");
+
 const errorHandler = (error, req, res, next) => {
   if (error.message === "NOT FOUND") {
     return res.status(400).end();
   }
-  return res.status(400).json(error.message);
+  if (error instanceof Sequelize.ValidationError) {
+    console.log(error.message.split(":"));
+  }
+  console.log(error.message);
+  return res.status(400).json({ error: error.message });
 };
 
 const unknownEndpoint = (req, res, next) => {
